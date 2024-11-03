@@ -64,4 +64,23 @@ public class TextReaderTest {
         assertEquals(3, expectedTextCounter.getLineCount(), "Line count should be 3 for three lines input");
         assertEquals(35, expectedTextCounter.getCharacterCount(), "Character count should be 35 for the three lines");
     }
+
+     @Test
+    public void testReadFromFile() throws IOException {
+        // Skapa en temporär fil med testinnehåll
+        Path tempFile = Files.createTempFile("testfile", ".txt");
+        try (FileWriter writer = new FileWriter(tempFile.toFile())) {
+            writer.write("This is a test.");
+        }
+
+        // Anta att TextReader har en metod `readFromFile(String filePath)`
+        TextReader textReader = new TextReader();
+        String content = textReader.readFromFile(tempFile.toString());
+
+        // Kontrollera att läsningen fungerar korrekt
+        assertEquals("This is a test.", content);
+        
+        // Rensa upp genom att ta bort den temporära filen
+        Files.delete(tempFile);
+    }
 }

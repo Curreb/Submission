@@ -23,9 +23,9 @@ public class TextCounterTest {
     @Test
     public void testAddLineIncreasesCharacterCount() {
         textCounter.addLine("Hello");
-        textCounter.addLine("World");
+        textCounter.addLine("Earth");
 
-        assertEquals(10, textCounter.getCharacterCount(), "Character count should be 10 after adding 'Hello' and 'World'");
+        assertEquals(10, textCounter.getCharacterCount(), "Character count should be 10 after adding 'Hello' and 'Earth'");
     }
 
     @Test

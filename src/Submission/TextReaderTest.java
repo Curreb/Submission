@@ -37,7 +37,7 @@ public class TextReaderTest {
         TextReader textReader = new TextReader();
         textReader.readText();
 
-        // Förväntat resultat: 1 rad och 15 tecken (med blanksteg)
+        // Förväntat resultat: 1 rad och 13 tecken (med blanksteg)
         TextCounter expectedTextCounter = new TextCounter();
         expectedTextCounter.addLine("Endast en rad");
 
@@ -55,7 +55,7 @@ public class TextReaderTest {
         TextReader textReader = new TextReader();
         textReader.readText();
 
-        // Förväntat resultat: 3 rader och 41 tecken
+        // Förväntat resultat: 3 rader och 35 tecken
         TextCounter expectedTextCounter = new TextCounter();
         expectedTextCounter.addLine("Första raden");
         expectedTextCounter.addLine("Andra raden");

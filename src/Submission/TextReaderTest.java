@@ -11,7 +11,7 @@ public class TextReaderTest {
 
     @Test
     public void testReadTextHandlesEmptyInput() {
-        // Simulera tom inmatning och avsluta med "stop"
+        
         String simulatedInput = "\nstop\n";
         InputStream in = new ByteArrayInputStream(simulatedInput.getBytes());
         System.setIn(in);
@@ -29,7 +29,7 @@ public class TextReaderTest {
 
     @Test
     public void testReadTextHandlesSingleLineInput() {
-        // Simulera en enda rad inmatning
+        
         String simulatedInput = "Endast en rad\nstop\n";
         InputStream in = new ByteArrayInputStream(simulatedInput.getBytes());
         System.setIn(in);
@@ -47,7 +47,7 @@ public class TextReaderTest {
 
     @Test
     public void testReadTextHandlesMultipleLinesInput() {
-        // Simulera flera rader inmatning
+        
         String simulatedInput = "Första raden\nAndra raden\nTredje raden\nstop\n";
         InputStream in = new ByteArrayInputStream(simulatedInput.getBytes());
         System.setIn(in);
@@ -55,7 +55,7 @@ public class TextReaderTest {
         TextReader textReader = new TextReader();
         textReader.readText();
 
-        // Förväntat resultat: 3 rader och 41 tecken
+        
         TextCounter expectedTextCounter = new TextCounter();
         expectedTextCounter.addLine("Första raden");
         expectedTextCounter.addLine("Andra raden");
@@ -67,20 +67,20 @@ public class TextReaderTest {
 
      @Test
     public void testReadFromFile() throws IOException {
-        // Skapa en temporär fil med testinnehåll
+        
         Path tempFile = Files.createTempFile("testfile", ".txt");
         try (FileWriter writer = new FileWriter(tempFile.toFile())) {
             writer.write("This is a test.");
         }
 
-        // Anta att TextReader har en metod `readFromFile(String filePath)`
+        
         TextReader textReader = new TextReader();
         String content = textReader.readFromFile(tempFile.toString());
 
-        // Kontrollera att läsningen fungerar korrekt
+        
         assertEquals("This is a test.", content);
         
-        // Rensa upp genom att ta bort den temporära filen
+        
         Files.delete(tempFile);
     }
 }

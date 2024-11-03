@@ -19,9 +19,9 @@ public class TextReaderTest {
         TextReader textReader = new TextReader();
         textReader.readText();
 
-        // Förväntat resultat: 1 rad (tom) och 0 tecken
+        
         TextCounter expectedTextCounter = new TextCounter();
-        expectedTextCounter.addLine(""); // En tom rad
+        expectedTextCounter.addLine(""); 
 
         assertEquals(1, expectedTextCounter.getLineCount(), "Line count should be 1 for an empty input line");
         assertEquals(0, expectedTextCounter.getCharacterCount(), "Character count should be 0 for an empty input line");
@@ -37,7 +37,7 @@ public class TextReaderTest {
         TextReader textReader = new TextReader();
         textReader.readText();
 
-        // Förväntat resultat: 1 rad och 15 tecken (med blanksteg)
+        
         TextCounter expectedTextCounter = new TextCounter();
         expectedTextCounter.addLine("Endast en rad");
 

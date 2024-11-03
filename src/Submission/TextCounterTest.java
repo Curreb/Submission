@@ -33,4 +33,13 @@ public class TextCounterTest {
         assertEquals(0, textCounter.getLineCount(), "Initial line count should be 0");
         assertEquals(0, textCounter.getCharacterCount(), "Initial character count should be 0");
     }
+
+    @Test
+public void testLongLine() {
+    String longLine = "a".repeat(1000); // En linje med 1000 tecken
+    textCounter.addLine(longLine);
+    
+    assertEquals(1, textCounter.getLineCount());
+    assertEquals(1000, textCounter.getCharacterCount());
+    }
 }
